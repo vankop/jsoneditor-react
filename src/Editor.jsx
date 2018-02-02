@@ -141,16 +141,11 @@ export default class Editor extends Component {
     }
 
     componentWillReceiveProps({
-        mode,
         schema,
         name,
         schemaRefs
     }) {
         if (this.jsonEditor) {
-            if (mode !== this.jsonEditor.getMode()) {
-                this.jsonEditor.setMode(mode);
-            }
-
             if (schema !== this.props.schema ||
                 schemaRefs !== this.props.schemaRefs
             ) {
