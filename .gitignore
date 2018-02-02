@@ -1,0 +1,10 @@
+/node_modules
+/lib
+/dist
+/es
+/coverage
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.idea/*
+test-report.html

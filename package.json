@@ -1,0 +1,71 @@
+{
+  "name": "jsoneditor-react",
+  "version": "0.0.1-dev",
+  "description": "React implementation of https://github.com/josdejong/jsoneditor",
+  "main": "es",
+  "module": "es",
+  "files": [
+    "es",
+    "dist",
+    "*.md",
+    "docs"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env BABEL_ENV=test NODE_ENV=test start-storybook -p 9001 -c .storybook",
+    "lint": "eslint src --ext .js --ext .jsx --fix --config .eslintrc.json",
+    "build:es": "cross-env BABEL_ENV=production NODE_ENV=production rollup -c -i src/index.js -o es/index.js",
+    "build:umd": "cross-env BABEL_ENV=production NODE_ENV=production rollup -c rollup.umd.config.js -i src/index.js -o dist/jsoneditor-react.min.js",
+    "build": "npm run build:es && npm run build:umd",
+    "prepublish": "npm run lint && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vankop/jsoneditor-react.git"
+  },
+  "keywords": [
+    "react",
+    "jsoneditor",
+    "json"
+  ],
+  "author": "Ivan Kopeykin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vankop/jsoneditor-react/issues"
+  },
+  "homepage": "https://github.com/vankop/jsoneditor-react#readme",
+  "dependencies": {
+    "invariant": "^2.2.2",
+    "jsoneditor": "^5.13.2",
+    "prop-types": "^15.6.0"
+  },
+  "devDependencies": {
+    "@storybook/react": "^3.3.11",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^5.1.3",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "rollup": "^0.54.0",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-css-only": "^0.4.0",
+    "rollup-plugin-node-resolve": "^3.0.2",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-uglify": "^2.0.1"
+  },
+  "peerDependencies": {
+    "react": "^16.2.0"
+  }
+}
