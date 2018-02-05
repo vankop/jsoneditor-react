@@ -16,7 +16,7 @@ npm install --save jsoneditor-react
 ## Usage
 
 ```javascript
-import { Editor } from 'jsoneditor-react';
+import { JsonEditor as Editor } from 'jsoneditor-react';
 import 'jsoneditor-react/es/editor.css';
 ```
 
@@ -114,7 +114,7 @@ const JsonEditor = importedComponent(() => Promise.all([
     import(/* webpackChunkName:'jsoneditor' */'brace'),
     import(/* webpackChunkName:'jsoneditor' */'ajv'),
     import(/* webpackChunkName:'jsoneditor' */'brace/theme/github')
-]).then(([{ Editor }, ace, Ajv ]) => {
+]).then(([{ JsonEditor: Editor }, ace, Ajv ]) => {
     return function EditorHoc(props) {
         return (
             <Editor
