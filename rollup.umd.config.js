@@ -1,4 +1,4 @@
-var config = require('./rollup.config.js');
+var config = require('./rollup.es.config.js');
 var uglify = require('rollup-plugin-uglify');
 
 const umdConfig = Object.assign({}, config, {

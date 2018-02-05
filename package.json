@@ -1,6 +1,6 @@
 {
   "name": "jsoneditor-react",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "React implementation of https://github.com/josdejong/jsoneditor",
   "main": "es",
   "module": "es",
@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env BABEL_ENV=test NODE_ENV=test start-storybook -p 9001 -c .storybook",
     "lint": "eslint src stories --ext .js --ext .jsx --fix --config .eslintrc.json",
-    "build:es": "cross-env BABEL_ENV=production NODE_ENV=production rollup -c -i src/index.js -o es/index.js",
+    "build:es": "cross-env BABEL_ENV=production NODE_ENV=production rollup -c rollup.es.config.js -i src/index.js -o es/index.js",
     "build:umd": "cross-env BABEL_ENV=production NODE_ENV=production rollup -c rollup.umd.config.js -i src/index.js -o dist/jsoneditor-react.min.js",
     "build": "npm run build:es && npm run build:umd && uglifycss es/editor.css > es/editor.min.css",
     "prepublish": "npm run lint && npm run build"
@@ -64,6 +64,7 @@
     "rollup": "^0.54.0",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-copy": "^0.2.3",
     "rollup-plugin-css-only": "^0.4.0",
     "rollup-plugin-node-resolve": "^3.0.2",
     "rollup-plugin-sourcemaps": "^0.4.2",
