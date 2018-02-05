@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import JSONEditor from 'jsoneditor/dist/jsoneditor-minimalist.min';
+import JSONEditor from 'jsoneditor/dist/jsoneditor-minimalist';
 import 'jsoneditor/dist/jsoneditor.min.css';
+import './fixAce.css';
 
 /**
  * @typedef {{
@@ -163,8 +164,10 @@ export default class Editor extends Component {
     }
 
     componentWillUnmount() {
-        this.jsonEditor.destroy();
-        this.jsonEditor = null;
+        if (this.jsonEditor) {
+            this.jsonEditor.destroy();
+            this.jsonEditor = null;
+        }
     }
 
     setRef(element) {
