@@ -17,7 +17,7 @@ npm install --save jsoneditor-react
 
 ```javascript
 import { JsonEditor as Editor } from 'jsoneditor-react';
-import 'jsoneditor-react/es/editor.css';
+import 'jsoneditor-react/es/editor.min.css';
 ```
 
 later in render method:
