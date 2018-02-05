@@ -1,6 +1,7 @@
 import React from 'react';
-import 'brace';
+import ace from 'brace';
 import 'brace/mode/json';
+import 'brace/theme/tomorrow_night_blue';
 import { Form, Field, reduxForm } from 'redux-form';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -61,6 +62,17 @@ storiesOf('JsonEditor/modes/code', module)
             onError={handleError}
             mode={Editor.modes.code}
         />
+    ))
+    .add('customization', () => (
+        <Editor
+            value={value}
+            onError={handleError}
+            onChange={handleChange}
+            schema={schema}
+            mode={Editor.modes.code}
+            theme="ace/theme/tomorrow_night_blue"
+            ajv={Ajv({ allErrors: true, verbose: true })}
+        />
     ));
 
 
@@ -106,6 +118,7 @@ aceThemes.keys().forEach((key) => {
             <Editor
                 value={value}
                 mode={Editor.modes.code}
+                ace={ace}
                 theme={`ace/theme${themeName}`}
             />
         );
