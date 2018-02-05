@@ -3,7 +3,7 @@
 [![Licence](https://img.shields.io/npm/l/jsoneditor-react.svg)](https://github.com/vankop/jsoneditor-react/blob/master/LICENSE)
 [![Known Vulnerabilities](https://snyk.io/test/github/vankop/jsoneditor-react/badge.svg?targetFile=package.json)](https://snyk.io/test/github/vankop/jsoneditor-react?targetFile=package.json)
 
-react implementation of [josdejong/jsoneditor](https://github.com/josdejong/jsoneditor)
+react wrapper implementation for [josdejong/jsoneditor](https://github.com/josdejong/jsoneditor)
 
 ## Installation
 
