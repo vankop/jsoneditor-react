@@ -4,10 +4,12 @@ import 'brace/mode/json';
 import { Form, Field, reduxForm } from 'redux-form';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import Ajv from 'ajv';
 import Editor from '../src/Editor';
 import Decorator from './decorator';
 import { reduxDecorator } from './reduxDecorator';
 import { FieldComponent } from './FieldComponent';
+
 import '../src/fixAce.css';
 
 const onChangeAction = action('onChange');
@@ -34,7 +36,17 @@ function handleError(error) {
     onErrorAction(JSON.stringify(error));
 }
 
-storiesOf('JsonEditor/code', module)
+const schema = {
+    type: 'object',
+    properties: {
+        some: {
+            type: 'integer'
+        }
+    },
+    required: ['some']
+};
+
+storiesOf('JsonEditor/modes/code', module)
     .addDecorator(Decorator)
     .add('onChange', () => (
         <Editor
@@ -51,7 +63,8 @@ storiesOf('JsonEditor/code', module)
         />
     ));
 
-storiesOf('JsonEditor/form', module)
+
+storiesOf('JsonEditor/modes/form', module)
     .addDecorator(Decorator)
     .add('with history enabled', () => (
         <Editor
@@ -98,3 +111,24 @@ aceThemes.keys().forEach((key) => {
         );
     });
 });
+
+storiesOf('JsonEditor/ajv', module)
+    .addDecorator(Decorator)
+    .add('validate', () => [
+        <div key={0}>
+            <span>Schema:</span>
+            <Editor
+                value={schema}
+                mode={Editor.modes.view}
+            />
+        </div>,
+        <div key={1}>
+            <span>JSON:</span>
+            <Editor
+                value={value}
+                mode={Editor.modes.code}
+                ajv={Ajv({ allErrors: true, verbose: true })}
+                schema={schema}
+            />
+        </div>
+    ]);
