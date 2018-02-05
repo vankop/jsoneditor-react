@@ -1,4 +1,6 @@
 import React from 'react';
+import 'brace';
+import 'brace/mode/json';
 import { Form, Field, reduxForm } from 'redux-form';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -6,11 +8,22 @@ import Editor from '../src/Editor';
 import Decorator from './decorator';
 import { reduxDecorator } from './reduxDecorator';
 import { FieldComponent } from './FieldComponent';
+import '../src/fixAce.css';
 
 const onChangeAction = action('onChange');
 const onErrorAction = action('onError');
 
-let value = { this: 'this', is: 'is', 'JSON!!!111!!': 'JSON!!!111!!' };
+let value = {
+    this: 'this',
+    is: 'is',
+    'JSON!!!111!!': 'JSON!!!111!!',
+    1: 1,
+    2: 1,
+    3: 1,
+    4: 1,
+    5: 1,
+    6: 1,
+};
 
 function handleChange(json) {
     onChangeAction(JSON.stringify(json));
@@ -67,3 +80,21 @@ const form = reduxForm({
 storiesOf('JsonEditor/redux-form', module)
     .addDecorator(reduxDecorator)
     .add('controlling by redux-form', () => React.createElement(form));
+
+const aceStory = storiesOf('JsonEditor/ace', module).addDecorator(Decorator);
+
+const aceThemes = require.context('brace/theme/', false, /.js$/);
+
+aceThemes.keys().forEach((key) => {
+    const themeName = key.replace('.js', '').replace(/^\./, '');
+    aceStory.add(themeName, () => {
+        aceThemes(key);
+        return (
+            <Editor
+                value={value}
+                mode={Editor.modes.code}
+                theme={`ace/theme${themeName}`}
+            />
+        );
+    });
+});
