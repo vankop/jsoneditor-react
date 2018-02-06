@@ -126,7 +126,7 @@ const JsonEditor = importedComponent(() => Promise.all([
             <Editor
                 ace={ace}
                 ajv={ajv}
-                theme="brace/theme/github"
+                theme="ace/theme/github"
                 {...props}
             />
         );
