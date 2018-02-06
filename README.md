@@ -38,6 +38,8 @@ If you want use with [Ajv](https://github.com/epoberezkin/ajv):
 ```jsx
 import Ajv from 'ajv';
 
+const ajv = new Ajv({ allErrors: true, verbose: true });
+
 ...
 
 render() {
@@ -45,7 +47,7 @@ render() {
         <Editor
             value={yourJson}
             onChange={this.handleChange}
-            ajv={Ajv({ allErrors: true, verbose: true })}
+            ajv={ajv}
             schema={yourSchema}
         />
     );
@@ -56,6 +58,7 @@ If you want use with [Ace Editor](https://github.com/thlorenz/brace):
 
 ```jsx
 import ace from 'brace';
+import 'brace/mode/json';
 import 'brace/theme/github';
 
 ...
@@ -77,6 +80,7 @@ Or:
 
 ```jsx
 import 'brace';
+import 'brace/mode/json';
 import 'brace/theme/github';
 
 ...
@@ -113,13 +117,15 @@ const JsonEditor = importedComponent(() => Promise.all([
     import(/* webpackChunkName:'jsoneditor' */'jsoneditor-react'),
     import(/* webpackChunkName:'jsoneditor' */'brace'),
     import(/* webpackChunkName:'jsoneditor' */'ajv'),
+    import(/* webpackChunkName:'jsoneditor' */'brace/mode/json'),
     import(/* webpackChunkName:'jsoneditor' */'brace/theme/github')
 ]).then(([{ JsonEditor: Editor }, ace, Ajv ]) => {
+    const ajv = new Ajv();
     return function EditorHoc(props) {
         return (
             <Editor
                 ace={ace}
-                ajv={new Ajv()}
+                ajv={ajv}
                 theme="brace/theme/github"
                 {...props}
             />
