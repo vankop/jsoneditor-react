@@ -180,6 +180,11 @@ export default class Editor extends Component {
     handleChange() {
         if (this.props.onChange) {
             try {
+                const text = this.jsonEditor.getText();
+                if (text === '') {
+                    this.props.onChange(null);
+                }
+
                 const currentJson = this.jsonEditor.get();
                 if (this.props.value !== currentJson) {
                     this.props.onChange(currentJson);
