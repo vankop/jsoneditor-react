@@ -51,7 +51,7 @@ storiesOf('JsonEditor/modes/code', module)
     .addDecorator(Decorator)
     .add('onChange', () => (
         <Editor
-            value={value}
+            value={null}
             onChange={handleChange}
             mode={Editor.modes.code}
         />

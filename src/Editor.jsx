@@ -138,7 +138,9 @@ export default class Editor extends Component {
             onChange: this.handleChange,
             modes: allowedModes,
             ...rest
-        }, value);
+        });
+
+        this.jsonEditor.set(value);
     }
 
     componentWillReceiveProps({
