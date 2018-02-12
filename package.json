@@ -1,6 +1,6 @@
 {
   "name": "jsoneditor-react",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "React implementation of https://github.com/josdejong/jsoneditor",
   "main": "es",
   "module": "es",

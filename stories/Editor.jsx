@@ -12,6 +12,7 @@ import { reduxDecorator } from './reduxDecorator';
 import { FieldComponent } from './FieldComponent';
 
 import '../src/fixAce.css';
+import DynamicTheme from './DynamicTheme';
 
 const onChangeAction = action('onChange');
 const onErrorAction = action('onError');
@@ -124,6 +125,14 @@ aceThemes.keys().forEach((key) => {
         );
     });
 });
+
+aceStory.add('Changing theme dynamically', () => (
+    <DynamicTheme
+        json={value}
+        onError={handleError}
+        onChange={handleChange}
+    />
+));
 
 storiesOf('JsonEditor/ajv', module)
     .addDecorator(Decorator)

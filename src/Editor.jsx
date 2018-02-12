@@ -129,34 +129,45 @@ export default class Editor extends Component {
             innerRef,
             htmlElementProps,
             tag,
-            value,
             onChange,
             ...rest
         } = this.props;
 
-        this.jsonEditor = new JSONEditor(this.htmlElementRef, {
-            onChange: this.handleChange,
-            modes: allowedModes,
-            ...rest
+        this.createEditor({
+            ...rest,
+            modes: allowedModes
         });
-
-        this.jsonEditor.set(value);
     }
 
     componentWillReceiveProps({
+        allowedModes,
         schema,
         name,
-        schemaRefs
+        theme,
+        schemaRefs,
+        innerRef,
+        htmlElementProps,
+        tag,
+        onChange,
+        ...rest
     }) {
         if (this.jsonEditor) {
-            if (schema !== this.props.schema ||
-                schemaRefs !== this.props.schemaRefs
-            ) {
-                this.jsonEditor.setSchema(schema, schemaRefs);
-            }
+            if (theme !== this.props.theme) {
+                this.createEditor({
+                    ...rest,
+                    theme,
+                    modes: allowedModes
+                });
+            } else {
+                if (schema !== this.props.schema ||
+                    schemaRefs !== this.props.schemaRefs
+                ) {
+                    this.jsonEditor.setSchema(schema, schemaRefs);
+                }
 
-            if (name !== this.jsonEditor.getName()) {
-                this.jsonEditor.setName(name);
+                if (name !== this.jsonEditor.getName()) {
+                    this.jsonEditor.setName(name);
+                }
             }
         }
     }
@@ -177,6 +188,19 @@ export default class Editor extends Component {
         if (this.props.innerRef) {
             this.props.innerRef(element);
         }
+    }
+
+    createEditor({ value, ...rest }) {
+        if (this.jsonEditor) {
+            this.jsonEditor.destroy();
+        }
+
+        this.jsonEditor = new JSONEditor(this.htmlElementRef, {
+            onChange: this.handleChange,
+            ...rest
+        });
+
+        this.jsonEditor.set(value);
     }
 
     handleChange() {
