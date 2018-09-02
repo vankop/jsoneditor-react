@@ -76,16 +76,27 @@ storiesOf('JsonEditor/modes/code', module)
         />
     ));
 
-
+const onEventAction = action('onEvent');
+function handleEvent(node, event) {
+    onEventAction(JSON.stringify({ node, eventType: event.type }));
+}
+    
 storiesOf('JsonEditor/modes/form', module)
     .addDecorator(Decorator)
+    .add('with onEvent handler', () => (
+        <Editor
+            value={value}
+            onEvent={handleEvent}
+            mode={Editor.modes.form}
+        />
+    ))
     .add('with history enabled', () => (
         <Editor
             value={value}
             history
             mode={Editor.modes.form}
         />
-    ));
+    ));    
 
 const submitAction = action('onSubmit');
 const form = reduxForm({
@@ -106,7 +117,7 @@ const form = reduxForm({
 storiesOf('JsonEditor/redux-form', module)
     .addDecorator(reduxDecorator)
     .add('controlling by redux-form', () => React.createElement(form));
-
+    
 const aceStory = storiesOf('JsonEditor/ace', module).addDecorator(Decorator);
 
 const aceThemes = require.context('brace/theme/', false, /.js$/);
