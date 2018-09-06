@@ -1,5 +1,5 @@
 var config = require('./rollup.es.config.js');
-var uglify = require('rollup-plugin-uglify');
+var uglifyPlugin = require('rollup-plugin-uglify');
 
 const umdConfig = Object.assign({}, config, {
     output: Object.assign({}, config.output, {
@@ -13,7 +13,7 @@ const umdConfig = Object.assign({}, config, {
     })
 });
 
-umdConfig.plugins.push(uglify({
+umdConfig.plugins.push(uglifyPlugin.uglify({
     compress: {
         pure_getters: true,
         unsafe: true,
