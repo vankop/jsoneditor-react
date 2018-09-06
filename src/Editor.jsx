@@ -159,8 +159,8 @@ export default class Editor extends Component {
                     modes: allowedModes
                 });
             } else {
-                if (schema !== this.props.schema ||
-                    schemaRefs !== this.props.schemaRefs
+                if (schema !== this.props.schema
+                    || schemaRefs !== this.props.schemaRefs
                 ) {
                     this.jsonEditor.setSchema(schema, schemaRefs);
                 }

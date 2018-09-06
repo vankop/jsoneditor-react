@@ -18,17 +18,19 @@ export class FieldComponent extends Component {
     }
 
     handleBlur(event) {
-        if (!event.relatedTarget ||
-            !event.currentTarget.contains(event.relatedTarget)) {
+        if (!event.relatedTarget
+            || !event.currentTarget.contains(event.relatedTarget)) {
             this.props.input.onBlur();
         }
     }
 
     render() {
         const {
-            value,
-            onChange
-        } = this.props.input;
+            input: {
+                value,
+                onChange
+            }
+        } = this.props;
 
         return (
             <Editor

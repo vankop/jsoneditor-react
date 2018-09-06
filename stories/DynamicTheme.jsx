@@ -32,7 +32,7 @@ export default class DynamicTheme extends Component {
 
         const isLight = this.isLight();
         return [
-            <button key={0} onClick={this.handleChange}>
+            <button type="button" key={0} onClick={this.handleChange}>
                 {`Change to ${isLight ? 'dark' : 'light'}`}
             </button>,
             <Editor
