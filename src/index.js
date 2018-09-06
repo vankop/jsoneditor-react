@@ -1,5 +1,3 @@
 import JsonEditor from './Editor';
 
-export {
-    JsonEditor
-};
+export { JsonEditor };
