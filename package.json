@@ -1,6 +1,6 @@
 {
   "name": "jsoneditor-react",
-  "version": "0.1.10",
+  "version": "1.0.0",
   "description": "React implementation of https://github.com/josdejong/jsoneditor",
   "main": "es",
   "module": "es",
@@ -36,7 +36,6 @@
   },
   "homepage": "https://github.com/vankop/jsoneditor-react#readme",
   "dependencies": {
-    "jsoneditor": "^5.13.2",
     "prop-types": "^15.6.0"
   },
   "devDependencies": {
@@ -73,6 +72,7 @@
     "uglifycss": "=0.0.29"
   },
   "peerDependencies": {
-    "react": "^16.2.0"
+    "react": "^16.2.0",
+    "jsoneditor": "^5.13.2"
   }
 }
