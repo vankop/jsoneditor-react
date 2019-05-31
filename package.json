@@ -36,6 +36,7 @@
   },
   "homepage": "https://github.com/vankop/jsoneditor-react#readme",
   "dependencies": {
+    "jsoneditor": "^5.33.0",
     "prop-types": "^15.6.0"
   },
   "devDependencies": {
