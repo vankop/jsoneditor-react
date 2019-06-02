@@ -17,8 +17,7 @@
     "build:es": "cross-env BABEL_ENV=production NODE_ENV=production rollup -c rollup.es.config.js -i src/index.js -o es/index.js",
     "build:umd": "cross-env BABEL_ENV=production NODE_ENV=production rollup -c rollup.umd.config.js -i src/index.js -o dist/jsoneditor-react.min.js",
     "build": "npm run build:es && npm run build:umd && uglifycss es/editor.css > es/editor.min.css",
-    "prepublish": "npm run lint && npm run build",
-    "prepare": "npm run build"
+    "prepublishOnly": "npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
