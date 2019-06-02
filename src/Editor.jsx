@@ -71,7 +71,7 @@ modes.allValues = values;
 export default class Editor extends Component {
     static propTypes = {
         //  jsoneditor props
-        value: PropTypes.object,
+        value: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
         mode: PropTypes.oneOf(values),
         name: PropTypes.string,
         schema: PropTypes.object,
@@ -93,7 +93,7 @@ export default class Editor extends Component {
         //  custom props
         tag: PropTypes.string,
         htmlElementProps: PropTypes.object,
-        innerRef: PropTypes.func
+        innerRef: PropTypes.func,
     };
 
     static defaultProps = {
@@ -102,7 +102,7 @@ export default class Editor extends Component {
         history: false,
         search: true,
         navigationBar: true,
-        statusBar: true
+        statusBar: true,
     };
 
     /**
