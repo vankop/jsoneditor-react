@@ -64,7 +64,7 @@ modes.allValues = values;
  * the upper right corner of the JSONEditor.
  * @property {Array<string>} [allowedModes] - Create a box in the editor menu where
  * the user can switch between the specified modes.
- * @property {string} [tag='div'] - Html element to render
+ * @property {(string|PropTypes.elementType)} [tag='div'] - Html element, or react element to render
  * @property {object} [htmlElementProps] - html element custom props
  * @property {Function} [innerRef] - callback to get html element reference
  */
@@ -91,7 +91,7 @@ export default class Editor extends Component {
         allowedModes: PropTypes.arrayOf(PropTypes.oneOf(values)),
 
         //  custom props
-        tag: PropTypes.string,
+        tag: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
         htmlElementProps: PropTypes.object,
         innerRef: PropTypes.func,
     };
