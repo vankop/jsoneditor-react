@@ -141,7 +141,7 @@ You can view usage of ```jsoneditor-react``` using our storybook.
 #### Steps to run storybook
 
 * fork or clone repository
-* ```npm install```
+* ```npm install jsoneditor```
 * ```npm run dev```
 * View ```http://localhost:9001```
 
