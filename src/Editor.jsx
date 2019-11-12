@@ -149,6 +149,7 @@ export default class Editor extends Component {
         htmlElementProps,
         tag,
         onChange,
+        value,
         ...rest
     }) {
         if (this.jsonEditor) {
@@ -163,6 +164,10 @@ export default class Editor extends Component {
                     || schemaRefs !== this.props.schemaRefs
                 ) {
                     this.jsonEditor.setSchema(schema, schemaRefs);
+                }
+
+                if (value !== this.props.value) {
+                    this.jsonEditor.set(value);
                 }
 
                 if (name !== this.jsonEditor.getName()) {
