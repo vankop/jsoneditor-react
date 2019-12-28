@@ -1,33 +1,7 @@
 {
-  "ignore": "node_modules/**",
-  "env": {
-    "test": {
-      "presets": [
-        [
-          "env",
-          {
-            "loose": true,
-            "forceAllTransforms": true
-          }
-        ],
-        "react",
-        "stage-0"
-      ]
-    },
-    "production": {
-      "presets": [
-        [
-          "env",
-          {
-            "loose": true,
-            "modules": false,
-            "forceAllTransforms": true
-          }
-        ],
-        "stage-0",
-        "react"
-      ],
-      "plugins": ["external-helpers"]
-    }
-  }
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "plugins": ["@babel/plugin-proposal-class-properties"]
 }
