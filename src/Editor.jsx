@@ -139,6 +139,7 @@ export default class Editor extends Component {
         });
     }
 
+    // eslint-disable-next-line react/sort-comp
     componentDidUpdate({
         allowedModes,
         schema,
