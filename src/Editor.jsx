@@ -139,7 +139,7 @@ export default class Editor extends Component {
         });
     }
 
-    componentWillReceiveProps({
+    componentDidUpdate({
         allowedModes,
         schema,
         name,
