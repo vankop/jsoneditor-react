@@ -69,47 +69,6 @@ modes.allValues = values;
  * @property {Function} [innerRef] - callback to get html element reference
  */
 export default class Editor extends Component {
-    static propTypes = {
-        //  jsoneditor props
-        value: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-        mode: PropTypes.oneOf(values),
-        name: PropTypes.string,
-        schema: PropTypes.object,
-        schemaRefs: PropTypes.object,
-
-        onChange: PropTypes.func,
-        onError: PropTypes.func,
-        onModeChange: PropTypes.func,
-
-        ace: PropTypes.object,
-        ajv: PropTypes.object,
-        theme: PropTypes.string,
-        history: PropTypes.bool,
-        navigationBar: PropTypes.bool,
-        statusBar: PropTypes.bool,
-        search: PropTypes.bool,
-        allowedModes: PropTypes.arrayOf(PropTypes.oneOf(values)),
-
-        //  custom props
-        tag: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
-        htmlElementProps: PropTypes.object,
-        innerRef: PropTypes.func,
-    };
-
-    static defaultProps = {
-        tag: 'div',
-        mode: modes.tree,
-        history: false,
-        search: true,
-        navigationBar: true,
-        statusBar: true,
-    };
-
-    /**
-     * @type TJsonEditorModes
-     */
-    static modes = modes;
-
     constructor(props) {
         super(props);
 
@@ -255,3 +214,44 @@ export default class Editor extends Component {
         );
     }
 }
+
+Editor.propTypes = {
+    //  jsoneditor props
+    value: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+    mode: PropTypes.oneOf(values),
+    name: PropTypes.string,
+    schema: PropTypes.object,
+    schemaRefs: PropTypes.object,
+
+    onChange: PropTypes.func,
+    onError: PropTypes.func,
+    onModeChange: PropTypes.func,
+
+    ace: PropTypes.object,
+    ajv: PropTypes.object,
+    theme: PropTypes.string,
+    history: PropTypes.bool,
+    navigationBar: PropTypes.bool,
+    statusBar: PropTypes.bool,
+    search: PropTypes.bool,
+    allowedModes: PropTypes.arrayOf(PropTypes.oneOf(values)),
+
+    //  custom props
+    tag: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
+    htmlElementProps: PropTypes.object,
+    innerRef: PropTypes.func,
+};
+
+Editor.defaultProps = {
+    tag: 'div',
+    mode: modes.tree,
+    history: false,
+    search: true,
+    navigationBar: true,
+    statusBar: true,
+};
+
+/**
+ * @type TJsonEditorModes
+ */
+Editor.modes = modes;
