@@ -15,7 +15,7 @@ npm install --save jsoneditor jsoneditor-react
 
 ## Bundling
 
-Version `3.0.0` and higher provide only es build. Also you need some loaders (it terms of webpack) to load json editor icons and css, e.g.:
+Version `3.0.0` and higher provide only es build. Also you need some loaders (in terms of webpack) to load json editor icons and css, e.g.:
 ```javascript
 module.exports = {
   module: {
