@@ -13,6 +13,20 @@ npm install --save jsoneditor jsoneditor-react
 
 ```jsoneditor-react``` using minimalist version of ```jsoneditor``` to minimize flat bundle size, so if you want to use [Ajv](https://github.com/epoberezkin/ajv) or [Ace Editor](https://github.com/thlorenz/brace) install them as well
 
+## Bundling
+
+Version `3.0.0` and higher provide only es build. Also you need some loaders (in terms of webpack) to load json editor icons and css, e.g.:
+```javascript
+module.exports = {
+  module: {
+    rules: [
+      {test: /\.css$/, loader: 'css-loader'},
+      {test: /\.svg$/, loader: 'file-loader'}
+    ]
+  }
+};
+```
+
 ## Usage
 
 ```javascript

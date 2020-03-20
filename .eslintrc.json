@@ -9,9 +9,10 @@
     "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true
+            "jsx": true,
+            "classes": true
         },
+        "ecmaVersion": 7,
         "sourceType": "module"
     },
     "plugins": [
@@ -19,6 +20,7 @@
     ],
     "rules": {
 /************                SKIP              *********************/
+        "import/no-named-as-default-member": 0,
         "react/destructuring-assignment": 0,
         "no-multi-assign": 0,
         "jsx-a11y/label-has-for": 0,

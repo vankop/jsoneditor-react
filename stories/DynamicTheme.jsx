@@ -7,15 +7,13 @@ import ace from 'brace';
 import Editor from '../src/Editor';
 
 export default class DynamicTheme extends Component {
-    static propTypes = {
-        json: PropTypes.object,
-        onError: PropTypes.func,
-        onChange: PropTypes.func
-    };
+    constructor(props, ctx) {
+        super(props, ctx);
 
-    state = {
-        theme: 'light'
-    };
+        this.state = {
+            theme: 'light'
+        };
+    }
 
     handleChange = () => this.setState({
         theme: this.isLight() ? 'dark' : 'light'
@@ -51,3 +49,9 @@ export default class DynamicTheme extends Component {
         ];
     }
 }
+
+DynamicTheme.propTypes = {
+    json: PropTypes.object,
+    onError: PropTypes.func,
+    onChange: PropTypes.func
+};

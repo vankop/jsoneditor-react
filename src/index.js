@@ -1,3 +1,3 @@
-import JsonEditor from './Editor';
+import JsonEditor from './Editor.jsx';
 
 export { JsonEditor };
