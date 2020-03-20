@@ -34,8 +34,9 @@ function handleChange(json) {
     value = json;
 }
 
-function handleError(error) {
-    onErrorAction(JSON.stringify(error));
+function handleError(preJson, error) {
+    onErrorAction(error);
+    value = preJson;
 }
 
 const schema = {
