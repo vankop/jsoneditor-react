@@ -76,10 +76,14 @@ export default class Editor extends Component {
         this.jsonEditor = null;
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleError = this.handleError.bind(this);
         this.setRef = this.setRef.bind(this);
         this.collapseAll = this.collapseAll.bind(this);
         this.expandAll = this.expandAll.bind(this);
         this.focus = this.focus.bind(this);
+        this.state = {
+            previousJson: this.props.value,
+        };
     }
 
     componentDidMount() {
@@ -89,6 +93,7 @@ export default class Editor extends Component {
             htmlElementProps,
             tag,
             onChange,
+            onError,
             ...rest
         } = this.props;
 
@@ -109,6 +114,7 @@ export default class Editor extends Component {
         htmlElementProps,
         tag,
         onChange,
+        onError,
         ...rest
     }) {
         if (this.jsonEditor) {
@@ -157,6 +163,7 @@ export default class Editor extends Component {
 
         this.jsonEditor = new JSONEditor(this.htmlElementRef, {
             onChange: this.handleChange,
+            onError: this.handleError,
             ...rest
         });
 
@@ -176,6 +183,24 @@ export default class Editor extends Component {
                     this.props.onChange(currentJson);
                 }
             } catch (err) {
+                this.err = err;
+            }
+        }
+        if (this.props.onError) {
+            this.handleError();
+        }
+    }
+
+    handleError() {
+        if (this.props.onError) {
+            try {
+                const text = this.jsonEditor.getText();
+                const pj = JSON.parse(text);
+                this.setState({
+                    previousJson: pj
+                });
+            } catch (err) {
+                this.props.onError(this.state.previousJson, err);
                 this.err = err;
             }
         }
