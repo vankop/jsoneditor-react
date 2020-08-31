@@ -67,6 +67,8 @@ modes.allValues = values;
  * @property {(string|PropTypes.elementType)} [tag='div'] - Html element, or react element to render
  * @property {object} [htmlElementProps] - html element custom props
  * @property {Function} [innerRef] - callback to get html element reference
+ * @property {boolean} [sortObjectKeys=false] If true, object keys in 'tree', 'view' or 'form' mode list 
+ * be listed alphabetically instead by their insertion order..
  */
 export default class Editor extends Component {
     constructor(props) {
@@ -222,6 +224,7 @@ Editor.propTypes = {
     name: PropTypes.string,
     schema: PropTypes.object,
     schemaRefs: PropTypes.object,
+    sortObjectKeys: PropTypes.bool,
 
     onChange: PropTypes.func,
     onError: PropTypes.func,
@@ -249,6 +252,7 @@ Editor.defaultProps = {
     search: true,
     navigationBar: true,
     statusBar: true,
+    sortObjectKeys: false,
 };
 
 /**
