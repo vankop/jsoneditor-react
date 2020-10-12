@@ -178,7 +178,8 @@ export default class Editor extends Component {
                     this.props.onChange(currentJson);
                 }
             } catch (err) {
-                this.err = err;
+                const currentJson = this.jsonEditor.get();
+                this.props.onChange(currentJson);
             }
         }
     }
