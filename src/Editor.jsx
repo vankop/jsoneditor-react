@@ -35,9 +35,8 @@ modes.allValues = values;
  * @property {object} [schemaRefs] - Schemas that are referenced using
  * the $ref property
  * @property {Function} [onChange] - Set a callback function
- * triggered when the contents of the JSONEditor change.
- * Called without parameters. Will only be triggered on changes made by the user.
- * Return new json.
+ * triggered when json in the JSONEditor change.
+ * Will only be triggered on changes made by the user.
  * @property {Function} [onError] - Set a callback function triggered when an error occurs.
  * Invoked with the error as first argument.
  * The callback is only invoked for errors triggered by a users action,
@@ -180,10 +179,6 @@ export default class Editor extends Component {
                 }
             } catch (err) {
                 this.err = err;
-				if(this.props.onError) {
-                  const error = typeof err === 'object' ? err.message : err;
-                  this.props.onError(error);
-                }
             }
         }
     }
