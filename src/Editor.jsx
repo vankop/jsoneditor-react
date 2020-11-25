@@ -168,6 +168,7 @@ export default class Editor extends Component {
     handleChange() {
         if (this.props.onChange) {
             try {
+                this.err = null;
                 const text = this.jsonEditor.getText();
                 if (text === '') {
                     this.props.onChange(null);
@@ -179,6 +180,10 @@ export default class Editor extends Component {
                 }
             } catch (err) {
                 this.err = err;
+                if(this.props.onError) {
+                    const error = typeof err === 'object' ? err.message : err;
+                    this.props.onError(error);
+                }
             }
         }
     }
