@@ -219,7 +219,13 @@ export default class Editor extends Component {
 
 Editor.propTypes = {
     //  jsoneditor props
-    value: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+    value: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.array,
+        PropTypes.string,
+        PropTypes.bool,
+        PropTypes.number,
+    ]),
     mode: PropTypes.oneOf(values),
     name: PropTypes.string,
     schema: PropTypes.object,
