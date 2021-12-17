@@ -26,7 +26,7 @@
     "jsoneditor",
     "json"
   ],
-  "author": "Ivan Kopeykin",
+  "author": "Ivan Kopeykin <ivan.kopeykin@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vankop/jsoneditor-react/issues"
@@ -70,7 +70,7 @@
     "uglifycss": "=0.0.29"
   },
   "peerDependencies": {
-    "react": "^16.2.0",
+    "react": "16 || 17",
     "jsoneditor": "^7.0.0 || ^8.0.0 || ^9.0.0"
   },
   "browserslist": [
