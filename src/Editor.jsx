@@ -129,6 +129,10 @@ export default class Editor extends Component {
                 if (name !== this.jsonEditor.getName()) {
                     this.jsonEditor.setName(name);
                 }
+
+                if (mode !== this.jsonEditor.getMode()) {
+                    this.jsonEditor.getMode(mode);
+                }
             }
         }
     }
