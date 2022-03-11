@@ -103,6 +103,7 @@ export default class Editor extends Component {
     componentDidUpdate({
         allowedModes,
         schema,
+        mode,
         name,
         theme,
         schemaRefs,
